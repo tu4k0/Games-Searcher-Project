@@ -1,0 +1,1 @@
+## Games-Searcher-Project with PHP + Laravel + Docker + External API
