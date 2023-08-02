@@ -33,7 +33,6 @@ RUN apt-get update && apt-get install -y \
     nmap \
     git \
     git-flow \
-    vim \
     nano \
     mc
 
@@ -59,6 +58,12 @@ RUN \
 RUN \
     pecl install xdebug \
     && docker-php-ext-enable xdebug
+
+# install composer
+RUN \
+    curl -s https://getcomposer.org/installer | php \
+    && mv composer.phar /usr/local/bin/composer \
+    && chmod +x /usr/local/bin/composer
 
 COPY composer.* /var/www/
 
