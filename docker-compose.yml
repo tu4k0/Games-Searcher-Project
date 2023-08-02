@@ -41,11 +41,14 @@ services:
       MYSQL_USER: "${DB_USERNAME}"
       SERVICE_NAME: "${DB_CONNECTION}"
       MYSQL_ROOT_PASSWORD: "${DB_ROOT_PASSWORD}"
+    volumes:
+        - data:/var/lib/mysql
     hostname: mysql
     networks:
       - games-searcher-network
     container_name: "mysql-${APP_NAME}"
-
+volumes:
+    data:
 networks:
   games-searcher-network:
     driver: bridge
