@@ -4,7 +4,7 @@ namespace App\Services;
 
 use GuzzleHttp\Client;
 
-class IgdbService
+class IgdbExternalApiService
 {
 
     protected Client|null $client = null;
