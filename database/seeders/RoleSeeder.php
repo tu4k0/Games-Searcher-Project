@@ -2,9 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Constants\Role;
+use App\Constants\RoleConstant;
 use Illuminate\Support\Facades\DB;
 
 class RoleSeeder extends Seeder
@@ -14,7 +13,7 @@ class RoleSeeder extends Seeder
      */
     public function run(): void
     {
-        foreach (Role::$roles as $roleId=>$roleName) {
+        foreach (RoleConstant::ROLES as $roleId=> $roleName) {
             DB::table('roles')->updateOrInsert(["id" => $roleId], ["id" => $roleId, "name" => $roleName]);
         }
     }

@@ -2,18 +2,16 @@
 
 namespace App\Models;
 
+use App\Constants\GameConstant;
 use App\Models\Base\BaseModel;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-
 
 class Game extends BaseModel
 {
     use HasFactory;
 
     protected $table = 'games';
-    protected $fillable = ['id', 'name', 'category_id', 'genre_id', 'rating', 'summary', 'first_release_date'];
+    protected $fillable = GameConstant::FILLABLE;
     protected $hidden = ['created_at', 'updated_at'];
 
     public function category()

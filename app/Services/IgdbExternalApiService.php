@@ -3,14 +3,16 @@
 namespace App\Services;
 
 use GuzzleHttp\Client;
+use Psr\Http\Message\ResponseInterface;
 
-class IgdbService
+class IgdbExternalApiService
 {
 
     protected Client|null $client = null;
     public string $access_token;
 
-    public function getClient() {
+    public function getClient(): ?Client
+    {
         if (is_null($this->client)) {
             $this->client = new Client();
         }
@@ -30,7 +32,8 @@ class IgdbService
         return $this->access_token;
     }
 
-    public function getGames() {
+    public function getGames(): ResponseInterface
+    {
         $response = $this->getClient()->request('POST', 'https://api.igdb.com/v4/games', [
             'headers' => [
             'Client-ID' => config('igdb.credentials.client_id'),
@@ -42,7 +45,8 @@ class IgdbService
         return $response;
     }
 
-    public function getGameByName(string $name) {
+    public function getGameByName(string $name): ResponseInterface
+    {
         $body = sprintf('search "%s"; fields *;', $name);
         $response = $this->getClient()->request('POST', 'https://api.igdb.com/v4/games', [
             'headers' => [
