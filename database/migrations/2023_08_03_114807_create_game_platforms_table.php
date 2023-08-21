@@ -21,11 +21,15 @@ return new class extends Migration
             $table
                 ->foreign('game_id', 'game_platform_game_fk')
                 ->on('games')
-                ->references('id');
+                ->references('id')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table
                 ->foreign('platform_id', 'game_platform_platform_fk')
                 ->on('platforms')
-                ->references('id');
+                ->references('id')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
         });
     }
 

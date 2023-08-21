@@ -23,7 +23,9 @@ return new class extends Migration
             $table
                 ->foreign('category_id', 'game_category_fk')
                 ->on('categories')
-                ->references('id');
+                ->references('id')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
         });
     }
 

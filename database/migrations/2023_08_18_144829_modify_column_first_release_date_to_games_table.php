@@ -2,7 +2,6 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -12,13 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categories', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
+        Schema::table('games', function (Blueprint $table) {
+            $table->date('first_release_date')->nullable()->change();
         });
-        Artisan::call('db:seed', [
-            '--class' => 'CategorySeeder'
-        ]);
     }
 
     /**
@@ -26,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categories');
+        Schema::table('games', function (Blueprint $table) {
+            $table->date('first_release_date')->change();
+        });
     }
 };

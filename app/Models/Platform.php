@@ -2,16 +2,16 @@
 
 namespace App\Models;
 
+use App\Constants\PlatformConstant;
 use App\Models\Base\BaseModel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
 class Platform extends BaseModel
 {
     use HasFactory;
 
     protected $table = 'platforms';
-    protected $fillable = ['id', 'abbreviation', 'name', 'category', 'generation', 'slug'];
+    protected $fillable = PlatformConstant::FILLABLE;
     protected $hidden = ['created_at', 'updated_at'];
 
     public function games()
