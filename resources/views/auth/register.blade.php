@@ -7,7 +7,7 @@
         <div class="container min-vh-100 d-flex justify-content-center align-items-center">
             <div class="row">
                 <h1 style="color:white">Register</h1>
-                <form action="{{ route("register_user") }}" class="center" style="width: 500px; height: 800px" method="POST">
+                <form action="{{ route("register_user") }}" class="center" style="width: 500px; height: 800px" method="POST" id="register_user">
                     @csrf
                     @error('googleId')
                     <p style="margin-top: 10px; font-size: 20px; color: red">{{ $message }}</p>

@@ -25,7 +25,6 @@ class GameRequest extends FormRequest
     {
         $body = $this->only(GameConstant::FILLABLE);
         $filters = [
-            'id' => ['trim', 'digit', 'cast:integer'],
             'name' => ['escape', 'trim', 'capitalize'],
             'rating' => ['trim', 'empty_string_to_null', 'digit', 'cast:float'],
             'summary' => ['strip_tags', 'trim'],
@@ -44,7 +43,6 @@ class GameRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'id' => ['required', 'numeric', 'integer'],
             'name' => ['required', 'string'],
             'rating' => ['numeric', 'between:1,100'],
             'summary' => ['required', 'string'],

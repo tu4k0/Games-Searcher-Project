@@ -9,6 +9,7 @@ use App\Transformers\PlatformTransformer;
 use Illuminate\Console\Command;
 use MarcReichel\IGDBLaravel\Models\Platform as IGDBPlatform;
 use MarcReichel\IGDBLaravel\Models\Genre as IGDBGenre;
+use Symfony\Component\Console\Command\Command as CommandAlias;
 
 class ModifyGenresPlatforms extends Command
 {
@@ -28,10 +29,13 @@ class ModifyGenresPlatforms extends Command
     /**
      * Execute the console command.
      */
-    public function handle(): void
+    public function handle(): int
     {
         $this->setGenres();
         $this->setPlatforms();
+        $this->line('Platforms and Genres created!');
+
+        return CommandAlias::SUCCESS;
     }
 
     private function setGenres(): void
@@ -64,7 +68,7 @@ class ModifyGenresPlatforms extends Command
                 $platform->abbreviation = $igdbPlatform->get('abbreviation');
                 $platform->name = $igdbPlatform->get('name');
                 $platform->category = $igdbPlatform->get('category');
-                $platform->generation = $igdbPlatform->get('abbreviation');
+                $platform->generation = $igdbPlatform->get('generation');
                 $platform->slug = $igdbPlatform->get('slug');
                 $platform->push();
             } else {

@@ -2,7 +2,10 @@
     "name": "laravel/laravel",
     "type": "project",
     "description": "The skeleton application for the Laravel framework.",
-    "keywords": ["laravel", "framework"],
+    "keywords": [
+        "laravel",
+        "framework"
+    ],
     "license": "MIT",
     "require": {
         "php": "^8.1",
@@ -19,6 +22,16 @@
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.13",
+        "codeception/c3": "^2.8",
+        "codeception/codeception": "^5.0",
+        "codeception/module-asserts": "^3.0",
+        "codeception/module-db": "^3.1",
+        "codeception/module-laravel": "^3.1",
+        "codeception/module-phpbrowser": "*",
+        "codeception/module-rest": "^3.3",
+        "codeception/module-webdriver": "^4.0",
+        "codeception/stub": "^4.1",
+        "codeception/verify": "^3.0",
         "fakerphp/faker": "^1.9.1",
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.18",
@@ -65,7 +78,8 @@
         "sort-packages": true,
         "allow-plugins": {
             "pestphp/pest-plugin": true,
-            "php-http/discovery": true
+            "php-http/discovery": true,
+            "codeception/c3": true
         }
     },
     "minimum-stability": "stable",

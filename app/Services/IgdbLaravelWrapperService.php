@@ -7,6 +7,9 @@ use MarcReichel\IGDBLaravel\Models\Game;
 
 class IgdbLaravelWrapperService
 {
+    /**
+     * @throws \MarcReichel\IGDBLaravel\Exceptions\MissingEndpointException
+     */
     public function getGameByName(string $name): array
     {
         $igdbGames = Game::search($name)->get();

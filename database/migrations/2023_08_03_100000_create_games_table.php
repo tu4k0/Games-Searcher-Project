@@ -17,6 +17,7 @@ return new class extends Migration
             $table->unsignedFloat('rating');
             $table->text('summary');
             $table->date('first_release_date');
+            $table->integer('source_id')->nullable();
             $table->timestamps();
             $table->unsignedBigInteger('category_id');
             $table->index('category_id','game_category_idx');

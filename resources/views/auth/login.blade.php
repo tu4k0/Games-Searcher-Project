@@ -14,7 +14,7 @@
                     @enderror
                     <div class="form-group mt-6">
                         <label for="loginInput" style="font-size:25px; color: white">Email</label>
-                        <input name="email" type="email" style="font-size:20px;" class="form-control mt-1 @error('email') border border-danger @enderror" placeholder="Enter email">
+                        <input name="email" style="font-size:20px;" class="form-control mt-1 @error('email') border border-danger @enderror" placeholder="Enter email">
                         @error('email')
                         <p style="margin-top: 10px; font-size: 20px; color: red">{{ $message }}</p>
                         @enderror
@@ -26,10 +26,10 @@
                         <p style="margin-top: 10px; font-size: 20px; color: red">{{ $message }}</p>
                         @enderror
                     </div>
-                    <button type="submit" class="btn btn-danger mt-4 items-center" style="font-size: 20px">Submit</button>
+                    <button type="submit" class="btn btn-danger mt-4 items-center" style="font-size: 20px">Login</button>
                     <div class="mt-6" style="float: right; margin-top: 20px">
                         <a href="{{ route('google_auth_form') }}">
-                            <img src="https://developers.google.com/identity/images/btn_google_signin_dark_normal_web.png" style="margin-left: 3em;">
+                            <img id="google_auth" src="https://developers.google.com/identity/images/btn_google_signin_dark_normal_web.png" style="margin-left: 3em;">
                         </a>
                     </div>
                 </form>
