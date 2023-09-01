@@ -22,8 +22,12 @@ class GameController extends Controller
     /**
      * Store a newly created game resource in storage.
      */
-    public function store(GameRequest $gameRequest, GameRepository $gameRepository, GameService $gameService, IgdbLaravelWrapperService $igdbLaravelWrapperService): array
-    {
+    public function store(
+        GameRequest $gameRequest,
+        GameRepository $gameRepository,
+        GameService $gameService,
+        IgdbLaravelWrapperService $igdbLaravelWrapperService
+    ): array {
         $game = $gameRepository->createGame($gameService, $igdbLaravelWrapperService, $gameRequest->toArray());
 
         return GameTransformer::resultTransform($game->id, "created", $game->toArray());

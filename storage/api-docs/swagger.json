@@ -68,7 +68,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Game"
+                                    "$ref": "#/components/schemas/GameRecord"
                                 }
                             }
                         }
@@ -201,7 +201,7 @@
     },
     "components": {
         "schemas": {
-            "Game": {
+            "GameRecord": {
                 "type": "object",
                 "properties": {
                     "id": {
@@ -231,6 +231,38 @@
                 },
                 "required": [
                     "id",
+                    "name",
+                    "category_id",
+                    "rating",
+                    "summary",
+                    "first_release_date"
+                ]
+            },
+            "Game": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "example": "Minecraft"
+                    },
+                    "rating": {
+                        "type": "number",
+                        "example": 10.5
+                    },
+                    "summary": {
+                        "type": "string",
+                        "example": "Top game for kids"
+                    },
+                    "first_release_date": {
+                        "type": "string",
+                        "example": "2022-01-12"
+                    },
+                    "category_id": {
+                        "type": "integer",
+                        "example": 1
+                    }
+                },
+                "required": [
                     "name",
                     "category_id",
                     "rating",

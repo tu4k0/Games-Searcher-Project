@@ -15,6 +15,8 @@ class GameTransformer
         // Primary key id for category can not be 0.
         // Index for category in IGDB is not a primary key and starts with 0.
         $game["category_id"] = $game["category"] + 1;
+        // Set source_id the game id value from IGDB service if game record exist
+        $game["source_id"] = $game["id"];
 
 
         return array_intersect_key($game, array_flip(self::$fillable));

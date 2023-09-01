@@ -18,3 +18,7 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+/tests/_output
+/tests/Support
+/database/gen
+/resources/views/vendor

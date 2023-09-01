@@ -29,20 +29,23 @@ services:
     depends_on:
       - mysql
     container_name: "php-fpm-${APP_NAME}"
+    environment:
+        PHP_IDE_CONFIG: "serverName=localhost"
   mysql:
-    build:
-      context: ./docker/mysql
-      dockerfile: Dockerfile
-    ports:
-      - "3306:3306"
     environment:
       MYSQL_PASSWORD: "${DB_PASSWORD}"
       MYSQL_DATABASE: "${DB_DATABASE}"
       MYSQL_USER: "${DB_USERNAME}"
       SERVICE_NAME: "${DB_CONNECTION}"
       MYSQL_ROOT_PASSWORD: "${DB_ROOT_PASSWORD}"
+    build:
+      context: ./docker/mysql
+      dockerfile: Dockerfile
+    ports:
+      - "3306:3306"
     volumes:
         - data:/var/lib/mysql
+        - ./create_test_database.sh:/mysql/script/create_test_database.sh
     hostname: mysql
     networks:
       - games-searcher-network

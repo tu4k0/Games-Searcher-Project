@@ -20,7 +20,8 @@ class IgdbExternalApiService
         return $this->client;
     }
 
-    public function getAccessToken() {
+    public function getAccessToken(): string
+    {
         $response = $this->getClient()->request('POST', 'https://id.twitch.tv/oauth2/token', ['form_params' => [
             'client_id' => config('igdb.credentials.client_id'),
             'client_secret' => config('igdb.credentials.client_secret'),
@@ -32,7 +33,7 @@ class IgdbExternalApiService
         return $this->access_token;
     }
 
-    public function getGames(): ResponseInterface
+    public function getGames(): ResponseInterface|array
     {
         $response = $this->getClient()->request('POST', 'https://api.igdb.com/v4/games', [
             'headers' => [
@@ -45,7 +46,7 @@ class IgdbExternalApiService
         return $response;
     }
 
-    public function getGameByName(string $name): ResponseInterface
+    public function getGameByName(string $name): ResponseInterface|array
     {
         $body = sprintf('search "%s"; fields *;', $name);
         $response = $this->getClient()->request('POST', 'https://api.igdb.com/v4/games', [
